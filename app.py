@@ -329,7 +329,20 @@ def main():
             """, unsafe_allow_html=True)
         
         st.divider()
-        st.markdown("### 📱 Your 10 Posts")
+        st.markdown("### 📱 Multi-Platform Engine (Forge)")
+        st.caption("Professional LinkedIn storytelling and Curiosity-driven Newsletter blurbs.")
+        
+        # LinkedIn and Newsletter in a different layout
+        l_col, n_col = st.columns(2)
+        with l_col:
+            if "linkedin_post" in posts:
+                render_post_card("linkedin_post", posts["linkedin_post"], 99)
+        with n_col:
+            if "newsletter_blurb" in posts:
+                render_post_card("newsletter_blurb", posts["newsletter_blurb"], 100)
+
+        st.divider()
+        st.markdown("### 📱 Your 10 X Posts")
         st.caption("Click copy to grab any post for X. Green = under 280 chars, Yellow = close, Red = over limit.")
         
         posts = st.session_state["posts"]
